@@ -21,6 +21,7 @@ $(document).ready(() => {
         }
 
         var user = result.user
+        console.log(user);
         $('#user').text(result.user);
         }).catch(function(error){
             var errorCode = error.code;
@@ -29,14 +30,17 @@ $(document).ready(() => {
             var email = error.email;
 
             var credential = error.credential;
+            console.log(errorMessage);
         });
-    });
+    }.bind(this));
 
     $('#signOut').click(function(){
         firebase.auth().signOut().then(function() {
-        // Sign-out successful.
+            // Sign-out successful.
+            console.log("Signed Out");
         }).catch(function(error) {
-        // An error happened.
+            // An error happened.
+            console.log("Error on Sign Out");
         });
-    });
+    }.bind(this));
 }); 
