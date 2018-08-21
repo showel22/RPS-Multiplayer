@@ -13,16 +13,16 @@ var googleProvider = new firebase.auth.GoogleAuthProvider();
 
 $(document).ready(() => {
     $('#googleSignIn').click(function(){
-        authentication.signInWithRedirect(googleProvider);
+        authentication.signInWithPopup(googleProvider).then(function(result){
+            if(result.credential) {
+                var token = result.credential.accessToken;
+                console.log(token);
+            }
 
-        authentication.getRedirectResult().then(function(result){
-        if(result.credential) {
-            var token = result.credential.accessToken;
-        }
+            var user = result.user;
+            
+            $('#user').text("Test");
 
-        var user = result.user
-        console.log(user);
-        $('#user').text(result.user);
         }).catch(function(error){
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -32,7 +32,7 @@ $(document).ready(() => {
             var credential = error.credential;
             console.log(errorMessage);
         });
-    }.bind(this));
+    });
 
     $('#signOut').click(function(){
         firebase.auth().signOut().then(function() {
@@ -42,5 +42,5 @@ $(document).ready(() => {
             // An error happened.
             console.log("Error on Sign Out");
         });
-    }.bind(this));
+    });
 }); 
