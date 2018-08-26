@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RPS</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="public/assets/css/chat.css">
+
+    <!-- Javascript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+    <script src="public/assets/javascript/moment.js"></script>
+    <script src="public/assets/javascript/globals.js"></script>
+    <script src="public/assets/javascript/auth.js"></script>
+    <script src="public/assets/javascript/players.js"></script>
+    <script src="public/assets/javascript/chat.js"></script>
+    <script src="public/assets/javascript/game.js"></script>
+</head>
+
+<body>
+
+    <div id="container" class="container">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">RPS</span>
+            <form class="form-inline">
+                <button id="googleSignIn" class="btn btn-outline-primary my-2 my-sm-0" type="button">Sign-in with Google</button>
+                <button id="signOut" class="btn btn-outline-danger my-2 my-sm-0" type="button">Sign Out</button>
+            </form>
+            <p id="user"></p>
+        </nav>
+    </div>
+
+    <div id="challenges" class="container">
+        <ul id="challengesList" class="list-group">
+
+        </ul>
+    </div>
+
+    <div id="game" class="container">
+
+        <!-- Content Added by Game Component -->
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Online Players Component -->
+            <div id="onlinePlayers" class="col-6">
+                <div>Online Players:</div>
+                <ul id="playerList" class="list-group">
+                    <!-- Content Added from javascript -->
+                </ul>
+            </div>
+
+            <!-- Chat Component -->
+            <div id="chatContainer" class="col-6">
+                <div>Global Chat:</div>
+                <div id="chat" class="row">
+                    <div id="chatBoxes" class="chat col-12">
+                        <!-- Content Added by Javascript -->
+                    </div>
+                </div>
+                <div class="row chatInput">
+                    <div class="col-12">
+                        <form class="input-group">
+                            <input id="chatInput" type="text" class="form-control" placeholder="Type a message..." aria-label="Chat Input" aria-describedby="basic-addon2">
+                            <div class="input-group-btn">
+                                <input id="submitChat" class="btn btn-success" type="submit"><i class="fa fa-paper-plane-o"
+                                    aria-hidden="true"></i></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
